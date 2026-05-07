@@ -4,6 +4,7 @@ import { Monitor, Moon, Sun } from "lucide-react";
 import { motion } from "framer-motion";
 import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
+import { GlassPanel } from "@/components/ui/glass";
 
 import { cn } from "@/lib/utils";
 
@@ -36,18 +37,21 @@ export function ThemeToggle() {
   }
 
   return (
-    <div
+    <GlassPanel
+      variant="clear"
+      opacity={74}
+      transparency={52}
+      highlight={0}
+      thickness={10}
+      refraction={0}
+      resizable={false}
       className="
-        relative
-        flex items-center
-        gap-1
-        rounded-full
-        border border-border
-        bg-surface/70
-        p-1
-        shadow-md
-        backdrop-blur-2xl
-      "
+    relative
+    flex items-center
+    gap-2
+    rounded-full
+    px-1 py-1
+  "
     >
       {themes.map((item) => {
         const Icon = item.icon;
@@ -64,7 +68,9 @@ export function ThemeToggle() {
               flex h-10 w-10
               items-center justify-center
               rounded-full
-              transition-colors
+              transition-all
+              duration-300
+              hover:scale-[1.03]
             "
           >
             {active && (
@@ -78,8 +84,9 @@ export function ThemeToggle() {
                 className="
                   absolute inset-0
                   rounded-full
-                  bg-primary
-                  shadow-lg
+                  bg-primary/90
+                  backdrop-blur-xl
+                  shadow-[0_0_24px_rgba(56,189,248,0.28)]                  
                 "
               />
             )}
@@ -91,12 +98,12 @@ export function ThemeToggle() {
                   h-4 w-4
                   transition-colors
                 `,
-                active ? "text-primary-foreground" : "text-muted",
+                active ? "text-primary-foreground" : "text-foreground/55",
               )}
             />
           </button>
         );
       })}
-    </div>
+    </GlassPanel>
   );
 }

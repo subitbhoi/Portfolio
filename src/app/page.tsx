@@ -1,4 +1,6 @@
 import { ThemeToggle } from "@/components/shared/providers/theme-toggle";
+import { WaveBackground } from "@/components/shared/wave-background";
+
 
 export default function HomePage() {
   return (
@@ -9,6 +11,7 @@ export default function HomePage() {
         bg-background
       "
     >
+      <WaveBackground />
       <ThemeToggle />
     </main>
   );
