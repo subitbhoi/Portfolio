@@ -1,26 +1,112 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #f5f7fb;
+  --foreground: #0f172a;
+
+  --surface: rgba(255, 255, 255, 0.6);
+  --surface-strong: rgba(255, 255, 255, 0.85);
+
+  --border: rgba(15, 23, 42, 0.08);
+
+  --primary: #3b82f6;
+  --primary-foreground: #ffffff;
+
+  --secondary: #64748b;
+  --muted: #94a3b8;
+
+  --glow: rgba(59, 130, 246, 0.18);
+
+  --font-sans: var(--font-inter);
+  --font-display: var(--font-space-grotesk);
+
+  --radius-sm: 12px;
+  --radius-md: 20px;
+  --radius-lg: 32px;
+  --radius-xl: 48px;
+
+  --shadow-sm: 0 4px 20px rgba(15, 23, 42, 0.04);
+
+  --shadow-md: 0 8px 30px rgba(15, 23, 42, 0.08);
+
+  --shadow-lg: 0 20px 60px rgba(15, 23, 42, 0.12);
+
+  --glass-blur: blur(24px);
+
+  --transition-fast: 150ms;
+  --transition-normal: 300ms;
+  --transition-slow: 600ms;
+}
+
+.dark {
+  --background: #020617;
+  --foreground: #f8fafc;
+
+  --surface: rgba(15, 23, 42, 0.55);
+  --surface-strong: rgba(15, 23, 42, 0.8);
+
+  --border: rgba(255, 255, 255, 0.08);
+
+  --primary: #38bdf8;
+  --primary-foreground: #020617;
+
+  --secondary: #94a3b8;
+  --muted: #64748b;
+
+  --glow: rgba(56, 189, 248, 0.2);
+
+  --shadow-sm: 0 4px 20px rgba(0, 0, 0, 0.25);
+
+  --shadow-md: 0 8px 30px rgba(0, 0, 0, 0.35);
+
+  --shadow-lg: 0 20px 60px rgba(0, 0, 0, 0.45);
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+
+  --color-surface: var(--surface);
+  --color-surface-strong: var(--surface-strong);
+
+  --color-border: var(--border);
+
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+
+  --color-secondary: var(--secondary);
+  --color-muted: var(--muted);
+
+  --font-sans: var(--font-sans);
+  --font-display: var(--font-display);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+* {
+  border-color: var(--border);
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+
+  font-family: var(--font-sans);
+
+  min-height: 100vh;
+
+  text-rendering: optimizeLegibility;
+
+  overflow-x: hidden;
+
+  transition:
+    background-color var(--transition-normal),
+    color var(--transition-normal);
+}
+
+::selection {
+  background: var(--primary);
+  color: var(--primary-foreground);
 }
