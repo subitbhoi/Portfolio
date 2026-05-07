@@ -1,3 +1,15 @@
+import { ThemeToggle } from "@/components/shared/providers/theme-toggle";
+
 export default function HomePage() {
-  return <div>HomePage</div>;
+  return (
+    <main
+      className="
+        flex min-h-screen
+        items-center justify-center
+        bg-background
+      "
+    >
+      <ThemeToggle />
+    </main>
+  );
 }
