@@ -50,7 +50,7 @@ export function ThemeToggle() {
     flex items-center
     gap-2
     rounded-full
-    px-1 py-1
+    
   "
     >
       {themes.map((item) => {
